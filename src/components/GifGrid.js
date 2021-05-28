@@ -7,12 +7,14 @@ function GifGrid({category}) {
     const {data:images,loading} = useFetchGifs(category);
 
     return (
-        <div>
+        <div className="grid-container">
+            <hr/>
             <h3>{category}</h3>
+            <hr/>
             { loading ? (
                 <div>Loading...</div>
             ) : (
-                <div>
+                <div className="grid-content">
                     {
                         images.map((image) => (
                             <GridGifItem 

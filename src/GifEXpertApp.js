@@ -5,10 +5,9 @@ import GifGrid from './components/GifGrid';
 function GifEXpertApp() {
     const [categories, setCategories] = useState(['One punch']);
     return (
-        <div>
+        <div className='container-app'>
             <h2>GifExpertApp</h2>
             <AddCategory setCategories={setCategories} />
-            <hr />
             <ul>
                 {
                     categories.map( (category) => (

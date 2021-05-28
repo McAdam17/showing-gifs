@@ -1,4 +1,4 @@
-import React,{useState,useRef} from 'react';
+import React,{useState,useRef,useEffect} from 'react';
 
 function AddCategory({setCategories}) {
     const [inputValue, setinputValue] = useState('');
@@ -14,16 +14,20 @@ function AddCategory({setCategories}) {
             setCategories( antCat => [inputValue,...antCat]);
             setinputValue( '' );
         }
-        
     }
 
+    useEffect(()=>{
+        input.current.focus();
+    });
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="search">
             <input 
                 type="text" 
                 value={inputValue} 
                 onChange={updateInput}
                 ref={input}
+                placeholder='Search on me! after that type enter'
             /> 
         </form>
     )
